@@ -1,57 +1,69 @@
-#include <bits/stdc++.h>
-#define ll long long int
-#define N 1000
-#define M 1000000007
-#define f(i,a,b) for(ll i=(ll)a;i<=(ll)b;i++)
-#define rf(i,a,b) for(ll i=(ll)a;i>=(ll)b;i--)
-#define po pop_back
-#define pb push_back
-#define lb lower_bound
-#define ub upper_bound
+//Coded by Abhijay Mitra
+#include <iostream>
+#include <stdlib.h>
+#include <algorithm>
+#include <cstdio>
+#include <numeric>
+#include <cstring>
+#include <numeric>
+#include <vector>
+#include <iterator> 
+#include <map>
+#include <set>
+#include <climits>
+#include <queue>
+#include <cmath>
+#include <stack>
+#include <cctype>
+#include <bitset>
+// #include <bits/stdc++.h>
+#define double long double
+#define int long long int
+#define ll int
 #define ibs ios_base::sync_with_stdio(false)
 #define cti cin.tie(0)
-#define cot cout.tie(0)
+#define bp __builtin_popcount
+#define pb emplace_back
+#define koto_memory(a) cout<<(sizeof(a)/1048576.0)<<" MB";
+#define res(v) sort(all(v)),v.erase(unique(all(v)), v.end());
+#define timer cerr << "Time elapsed : " << 1.0 * clock() / CLOCKS_PER_SEC << " sec \n";
+#define deb(x) cout<<"\n["<<#x<<" = "<<x<<"]\n";
+using vi = std::vector<int>;
+using vvi = std::vector<vi>;
+using pii = std::pair<int,int>;
+using vpii = std::vector<pii>;
+using vvpii = std::vector<vpii>;
+#define mp         make_pair
+#define rep(i,a,b) for (int i = a; i <= b; i++)
+#define per(i,b,a) for (int i = b; i >= a; i--)
+#define all(x)     x.begin(), x.end()
 using namespace std;
-#define watch(x) cout << (#x) << " is " << (x) << endl
-int main(){
-    ibs;cti;
-    int T;
-    cin>>T;
-    while(T--){
-        ll n; cin>>n;
-        bool v[n][10];
-        for (int i = 0; i < n; ++i)
-        {
-            for (int j = 0; j < 10; ++j)
-            {
-                cin>>v[i][j];
-            }
-            // if (i)
-            // {
-            //     cout<<"\n\n\n";
-            //     for (int j = 0; j < 10; ++j)
-            //     {
-            //         if ((v[i-1][j]==1&&v[i][j]==0)||(v[i-1][j]==0&&v[i][j]==1))
-            //         {
-            //             v[i][j]=1;
-            //         }
-            //         else v[i][j]=0;
-            //          cout<<v[i][j];
-
-            //     }
-            //      cout<<"\n\n\n";
-            // }
-        }
-        ll count=0;
-        cout<<"\n\n\n";
-        for (int j = 0; j < 10; ++j)
-        {
-            cout<<v[n-1][j];
-            if(v[n-1][j])
-                count++;
-        }
-        cout<<"\n\n"<<"\n\n\n"<<count<<"\n";
-
-    }
-    return 0;
+const int N=2e6+10;
+const int inf = /*0x3f3f3f3f*/1e18+10;
+// const ll M = 998244353 ; // Mulo
+// const int M = 1e9+7 ; // Mulo
+const double Pi = 3.14159265;
+#define F first
+#define S second
+int n,a[N],b[N],cnt[N],pos[N];
+void solve(){
+  cin>>n;set<int>s[n+1];int ans=0;
+  rep(i,1,n)cnt[i]=0,pos[i]=0,s[i].clear();
+  rep(i,1,n)cin>>a[i],cnt[a[i]]++;
+  rep(i,1,n)cin>>b[i],cnt[b[i]]++;
+  rep(i,1,n)if(cnt[i]!=2){cout<<-1;return;}
+  rep(i,1,n)pos[a[i]]=i,pos[b[i]]=i;
+  rep(i,1,n)if(cnt[i]==2){s[i].insert(pos[i]);}
+  rep(i,1,n)if(s[i].empty()^1)ans++;cout<<ans<<"\n";
+  rep(i,1,n)if(s[i].empty()^1)cout<<*s[i].rbegin()<<" ";
+}
+int32_t main()
+{
+  ibs;cti;
+  // solve();return 0;
+  /*,cout<<"\n"*/;
+  // cout<<"\n";
+  int xx=0;
+  int t;cin>>t;while(t--){/*xx++;cout<<"Case "<<xx<<":\n"*/;solve();cout<<"\n";}
+  return 0;
 }

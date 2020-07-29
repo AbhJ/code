@@ -40,6 +40,8 @@ int main(){
             }
         }
         cout<<countSetBits(x[n-1])<<"\n";
+       
+        /*return 0;*/
 
     }
     return 0;
